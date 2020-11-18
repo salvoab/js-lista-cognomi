@@ -1,18 +1,24 @@
 /*******************
 * Chiedere all’utente il cognome
-* inserirlo in un array con altri cognomi: "Bianchi’, "Rossi’, "Duzioni’, "Balsano’, "Verdi’
+* inserirlo in un array con altri cognomi: "Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"
 * stampa la lista ordinata alfabeticamente
 * scrivi anche la posizione "umana" della lista in cui il nuovo utente si trova
 *********************/
 
 var listaCognomi = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
-var cognomeRichiesto = prompt("Inserisci il tuo cognome");
 var spanCognomeUtente = document.getElementById("cognome-utente");
 var spanPosizioneCognome = document.getElementById("posizione-cognome");
-var posizioneCognomeRichiesto;
+var cognomeRichiesto, posizioneCognomeRichiesto;
 
+//Richiedo un cognome con il prompt, e continuo a chiederlo se l'utente seleziona Annulla dal prompt
+do{
+    cognomeRichiesto = prompt("Inserisci il tuo cognome");
+} while(cognomeRichiesto == null);
+
+//Istruzioni per rendere solo la prima lettera del cognome maiuscola
 cognomeRichiesto = cognomeRichiesto.toLowerCase();
 cognomeRichiesto = cognomeRichiesto.charAt(0).toUpperCase() + cognomeRichiesto.slice(1);
+
 listaCognomi.push(cognomeRichiesto);
 listaCognomi.sort();
 
